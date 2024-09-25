@@ -1,0 +1,17 @@
+<%= render 'shared/errors', obj: @student%>
+
+<h2 class="center-align"><%= @student.new_record? ? 'Sign Up' : 'Edit' %></h2>
+<%= form_for @student do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  
+  <% if @student.new_record? %>
+    <%= f.submit "Add Student", class: 'waves-effect waves-light btn-small' %> 
+  <% else %>
+    <%= f.submit "Update Profile", class: "waves-effect waves-light btn-small" %>
+  <% end %>
+<% end %>
