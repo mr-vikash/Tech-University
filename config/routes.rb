@@ -10,11 +10,15 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  root "welcome#index"
-  get "pages/about", :to => "pages#about"
-  get "pages/contact", :to => "pages#contact"
-  get "pages/address", :to => "pages#address"
-  
+  root "courses#index"
+  get "pages/about", to: "pages#about"
+  get "pages/contact", to: "pages#contact"
+  get "pages/address", to: "pages#address"
+
   resources :courses
   resources :students
+
+  get "login", to: "logins#new"
+  post "login", to: "logins#create"
+  delete "logout", to: "logins#destroy"
 end
