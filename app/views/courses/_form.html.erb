@@ -1,6 +1,6 @@
 <%= render 'shared/errors', obj: @course %>
 
-<h2 class="center-align"><%= @course.new_record? ? 'Sign Up' : 'Edit' %></h2>
+<h2 class="center-align"><%= @course.new_record? ? 'Add Course' : 'Update Course' %></h2>
 <%= form_for @course do |f| %>
 
   <%= f.label :short_name %>

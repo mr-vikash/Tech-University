@@ -6,13 +6,20 @@
 </ul>
 <nav>
     <div class="container">
-      <div class="nav-wrapper">
+      <div >
         <%= link_to "Tech University", root_path, :class => "brand-logo" %>
         <ul class="right hide-on-med-and-down">
+            <li><%= link_to "Add Course", new_course_path %></li>
             <li><%= link_to "Courses", courses_path %></li>
-            <li><%= link_to "Enrollment", pages_contact_path %></li>
-            <!-- Dropdown Trigger -->
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><%= link_to "Students", students_path %></li>
+            <% if !logged_in? %>
+            <li><%= link_to "SignUp", new_student_path %></li>
+            <li><%= link_to "Login", login_path %></li>
+            <% end%>
+            <li><%= link_to "Logout", logout_path, data: {
+                      turbo_method: :delete
+                    } %>
+            </li>
         </ul>
       </div>
     </div>
